@@ -1,0 +1,70 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+:root {
+    --hue: 200;
+    --saturation: 50%;
+    --background: hsl(var(--hue), var(--saturation), 20%);
+    --foreground: hsl(var(--hue), var(--saturation), 75%);
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    overflow: hidden;
+}
+
+#paddle__left, #paddle__right {
+    --position: 50;
+
+    position: absolute;
+    background-color: var(--foreground);
+    top: calc(var(--position) * 1vh);
+    transform: translateY(-50%);
+    width: 1vh;
+    height: 10vh;
+}
+
+#paddle__left {
+    left: 1vw;
+}
+
+#paddle__right {
+    right: 1vw;
+}
+
+#ball {
+    --x: 50;
+    --y: 50;
+
+    position: absolute;
+    background-color: var(--foreground);
+    top: calc(var(--y) * 1vh);
+    left: calc(var(--x) * 1vw);
+    transform: translate(-50%, -50%);
+    width: 2.5vh;
+    height: 2.5vh;
+    border-radius: 50%;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 7vh;
+    color: var(--foreground);
+}
+
+.scoreboard > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 2vh;
+    margin: 1vh 0;
+    opacity: 0.5;
+}
+
+.scoreboard > :first-child {
+    text-align: right;
+    border-right: 1px solid var(--foreground);
+}
